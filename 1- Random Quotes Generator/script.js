@@ -5,9 +5,21 @@ const author = document.getElementById('author');
 button.addEventListener('click', () => {
     const random = Math.floor(Math.random() * quotes.length);
     console.log(random)
+
+    let opacity = 0;
+      let fadeIn = setInterval(() => {
+         if (opacity >= 1) {
+            clearInterval(fadeIn);
+         }
+         quote.style.opacity = opacity;
+         opacity += 0.01;
+      }, 10);
+    
     quote.innerText = quotes[random].quote;
     author.innerText = "- " + quotes[random].author;
 })
+
+
 
 const quotes = [
   {
